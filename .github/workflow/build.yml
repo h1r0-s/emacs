@@ -3,9 +3,9 @@ on:
   push:
     branches: [my/feature/android]
   pull_request:
-    branches: my/feature/android]
+    branches: [my/feature/android]
   workflow_dispatch:
-    branches: my/[feature/android]
+    branches: [my/feature/android]
 #
 jobs:
   #
