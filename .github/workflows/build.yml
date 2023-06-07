@@ -61,7 +61,7 @@ jobs:
         run: |
           tmp=$(mktemp)
           perl -ne \
-          'if m|</resources>| \
+          'if (m|</resources>|) \
            {\
              printf( "%s\n%s\n", \
                "  <string name=\"shared_user_label\">Emacs on Termux</string>", \
