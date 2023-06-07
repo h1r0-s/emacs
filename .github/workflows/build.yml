@@ -68,7 +68,7 @@ jobs:
                "</resources>");
            } else {
              print;
-        }' java/res/values/strings.xml >${tmp}
+           }' java/res/values/strings.xml >${tmp}
            cp -f ${tmp} java/res/values/strings.xml
       #
       # Run generated configure script.
