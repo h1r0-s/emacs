@@ -274,6 +274,7 @@ $(RESOURCE_FILE): $(RESOURCE_FILES)
 	$(AM_V_GEN) $(AAPT) p -I "$(ANDROID_JAR)" -f	\
 	  -J $(dir $@) -M AndroidManifest.xml		\
 	  -S $(top_srcdir)/java/res
+	cat $(top_srcdir)/java/com/termux/emacs/R.java
 
 # Make all class files depend on R.java being built.
 $(CLASS_FILES): $(RESOURCE_FILE)
