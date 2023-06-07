@@ -57,7 +57,7 @@ jobs:
           mv java/com/gnu java/com/termux
       #
       # Add files.
-      - name: Appearance resource to necessary files.
+      - name: Add resource to necessary files.
         run: |
           tmp=$(mktemp)
           perl -ne \
@@ -80,9 +80,6 @@ jobs:
           ANDROID_CC=$ANDROID_HOME/ndk/25.2.9519653/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android22-clang
           SDK_BUILD_TOOLS=$ANDROID_HOME/build-tools/33.0.0
       #
-      - name: Debug
-        run: |
-          cat java/com/termux/emacs/R.java
       # Run make with generated Makefiles.
       - name: Build Emacs
         run: make
