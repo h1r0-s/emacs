@@ -57,11 +57,17 @@ jobs:
           mv java/com/gnu java/com/termux
       #
       # Add files.
-      - name: Add necessary files.
+      - name: Appearance resource to necessary files.
         run: |
-          echo '<resources>' >>java/res/values/strings.xml
-          echo '  <string name="shared_user_label">Emacs on Termux</string>' >>java/res/values/strings.xml
-          echo '</resources>' >>java/res/values/strings.xml
+          tmp=$(mktemp)
+          perl -ne \
+          'if m|</resources>| \
+           {\
+             printf( "%s\n%s\n", \
+               "  <string name=\"shared_user_label\">Emacs on Termux</string>", \
+               "</resources>"\
+           }' java/res/values/strings.xml >${tmp}
+           cp -f ${tmp} java/res/values/strings.xml
       #
       # Run generated configure script.
       - name: Run configure
