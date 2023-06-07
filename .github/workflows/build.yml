@@ -59,8 +59,8 @@ jobs:
       # Add files.
       - name: Add necessary files.
         run: |
-          echo '<resources>' >java/res/values/strings.xml
-          echo '<string name="shared_user_label">Emacs on Termux</string>' >>java/res/values/strings.xml
+          echo '<resources>' >>java/res/values/strings.xml
+          echo '  <string name="shared_user_label">Emacs on Termux</string>' >>java/res/values/strings.xml
           echo '</resources>' >>java/res/values/strings.xml
       #
       # Run generated configure script.
