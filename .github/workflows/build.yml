@@ -61,12 +61,14 @@ jobs:
         run: |
           tmp=$(mktemp)
           perl -ne \
-          'if (m|</resources>|) \
-           {\
-             printf( "%s\n%s\n", \
-               "  <string name=\"shared_user_label\">Emacs on Termux</string>", \
-               "</resources>"\
-           }' java/res/values/strings.xml >${tmp}
+          'if (m|</resources>|)
+           {
+             printf( "%s\n%s\n", 
+               "  <string name=\"shared_user_label\">Emacs on Termux</string>", 
+               "</resources>");
+           } else {
+             print;
+        }' java/res/values/strings.xml >${tmp}
            cp -f ${tmp} java/res/values/strings.xml
       #
       # Run generated configure script.
