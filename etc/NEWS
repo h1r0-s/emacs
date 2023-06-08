@@ -469,6 +469,14 @@ hooks named after the feature name, like 'esh-mode-unload-hook'.
 +++
 ** 'copy-tree' now copies records when its optional 2nd argument is non-nil.
 
++++
+** Certain values of 'header-line-format' now inhibit empty header line.
+Emacs now avoids displaying a header line, instead of displaying an
+empty one, when 'header-line-format' is a list whose 'car' is a
+symbol, and either that symbol is ':eval' and the second element of
+the list evaluates to 'nil' or the symbol's value as a variable is
+'nil' or void.
+
 
 * Lisp Changes in Emacs 30.1
 
@@ -683,6 +691,11 @@ to create such a loop results in an error.
 Since circular alias chains now cannot occur, 'function-alias-p',
 'indirect-function' and 'indirect-variable' will never signal an error.
 Their 'noerror' arguments have no effect and are therefore obsolete.
+
+---
+** New function 'eval-command-interactive-spec' in the subr-x library.
+This function evaluates a command's interactive form and returns the
+resultant list.
 
 
 * Changes in Emacs 30.1 on Non-Free Operating Systems
